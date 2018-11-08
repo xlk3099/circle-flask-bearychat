@@ -15,4 +15,4 @@ jobs:
 notify:
   webhooks:
     # A list of hook hashes, containing the url field
-    - url: http://54.255.239.175/circleci/build/f78bfcf72a2bc2066264f3b393062a06
+    - url: http://54.255.239.175:8080/circleci/build/f78bfcf72a2bc2066264f3b393062a06
