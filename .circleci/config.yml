@@ -15,7 +15,7 @@ jobs:
               {
                 "user" : "%s",
                 "branch":  "%s",
-                "number": "%s"
+                "commit": "%s"
               }
           command: |
             hook_data=$(printf "$template" "${CIRCLE_USERNAME:-unknown}" "${CIRCLE_BRANCH:?}"  "${CIRCLE_SHA1:?}")
