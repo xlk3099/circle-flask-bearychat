@@ -16,8 +16,8 @@ jobs:
           environment:
             template: |
             {
-              "user": ${CIRCLE_USERNAME:?},
-              "branch": ${CIRCLE_BRANCH:?},
+              "user": $CIRCLE_USERNAME,
+              "branch": $CIRCLE_BRANCH,
               "number": $CIRCLE_SHA1
             }
           command: |
