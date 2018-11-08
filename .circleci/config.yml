@@ -2,12 +2,13 @@ version: 2
 jobs:
   build:
     docker:
-      - image: debian:stretch
+      - image: 'golang:1.10.3'
     steps:
       - checkout
+
       - run:
-          name: Greeting
-          command: echo Hello, world.
+          name: Install curl
+          command: apt-get install curl
       - run:
           name: Print the Current Time
           command: date
