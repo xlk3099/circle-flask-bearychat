@@ -11,8 +11,17 @@ jobs:
       - run:
           name: Print the Current Time
           command: date
-
-notify:
-  webhooks:
-    # A list of hook hashes, containing the url field
-    - url: http://54.255.239.175:8080/circleci/build/f78bfcf72a2bc2066264f3b393062a06
+      - run: 
+          name: Test
+          environment:
+            template: |
+            {
+              "user": ${CIRCLE_USERNAME:?},
+              "branch": ${CIRCLE_BRANCH:?},
+              "number": $CIRCLE_SHA1
+            }
+          command: |
+            hook_data=$(printf "$template")
+          # send integration test trigger to aws explorer stage server
+            curl -X POST -H 'Content-Type: application/json' ${EXPLORER_STAGE_URL:?} --data "${hook_data:?}"
+          
