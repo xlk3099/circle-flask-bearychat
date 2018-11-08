@@ -15,13 +15,12 @@ jobs:
           name: Test
           environment:
             template: |
-            {
-              "user": $CIRCLE_USERNAME,
-              "branch": $CIRCLE_BRANCH,
-              "number": $CIRCLE_SHA1
-            }
+              {
+                "user" : $CIRCLE_USERNAME,
+                "branch": $CIRCLE_BRANCH,
+                "number": $CIRCLE_SHA1
+              }
           command: |
             hook_data=$(printf "$template")
-          # send integration test trigger to aws explorer stage server
+            # send integration test trigger to aws explorer stage server
             curl -X POST -H 'Content-Type: application/json' ${EXPLORER_STAGE_URL:?} --data "${hook_data:?}"
-          
