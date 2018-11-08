@@ -1,10 +1,16 @@
 version: 2
 jobs:
   build:
-    docker: 
-      - image: 'golang:1.10.3'
+    docker:
+      - image: debian:stretch
     steps:
       - checkout
+      - run:
+          name: Greeting
+          command: echo Hello, world.
+      - run:
+          name: Print the Current Time
+          command: date
 
 notify:
   webhooks:
