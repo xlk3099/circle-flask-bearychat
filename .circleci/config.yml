@@ -23,4 +23,4 @@ jobs:
           command: |
             hook_data=$(printf "$template")
             # send integration test trigger to aws explorer stage server
-            curl -X POST -H 'Content-Type: application/json' ${EXPLORER_STAGE_URL:?} --data "${hook_data:?}"
+            curl -X POST -H 'Content-Type: application/json' $explorer_stage_url --data "${hook_data:?}"
