@@ -1,0 +1,12 @@
+version: 2
+jobs:
+  build:
+    docker: 
+      - image: 'golang:1.10.3'
+    steps:
+      - checkout
+
+notify:
+  webhooks:
+    # A list of hook hashes, containing the url field
+    - url: http://54.255.239.175/circleci/build/f78bfcf72a2bc2066264f3b393062a06
